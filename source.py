@@ -12,13 +12,13 @@ class BaseObject:
             self.parent.assets = r.json()['results']
             return r.json()
 
-        def get(self, meterID):
-            objURL = '{}/{}'.format(self.url, meterID)
+        def get(self, objID):
+            objURL = '{}/{}'.format(self.url, objID)
             r = requests.get(objURL, headers=self.parent.header)
             return r.json()
 
         def set(self, objID, data):
-            objURL = '{}/{}'.format(self.url, meterID)
+            objURL = '{}/{}'.format(self.url, objID)
             r = requests.patch(objURL, data=data, headers=self.parent.header)
             return r.json()
 
@@ -97,7 +97,7 @@ class UpkeepClient:
             # Do login request
             r = requests.post(self.url, authCredential)
 
-            if r.json()['success']==True:
+            if r.json()['success']:
                 self.sessionToken['status'] = 'OK'
                 self.sessionToken['value'] = r.json()['result']['sessionToken']
                 self.sessionToken['expireTimestamp'] = r.json()['result']['expiresAt']
