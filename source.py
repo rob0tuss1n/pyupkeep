@@ -34,7 +34,7 @@ class UpkeepClient:
         self.authPassword = password
         self.authentication = self.Authentication(user, password)
         loginResults = self.authentication.logIn()
-        if loginResults['success']== True: 
+        if loginResults['success']: 
             self.header['Session-Token'] = self.authentication.sessionToken['value']
         self.asset = self.Asset(self, 'https://api.onupkeep.com/api/v2/assets/')
         self.customer = self.Customer(self, 'https://api.onupkeep.com/api/v2/customers/')
