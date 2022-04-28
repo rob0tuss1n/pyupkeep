@@ -38,7 +38,7 @@ class UpkeepClient:
             self.header['Session-Token'] = self.authentication.sessionToken['value']
         self.asset = self.Asset(self, 'https://api.onupkeep.com/api/v2/assets/')
         self.customer = self.Customer(self, 'https://api.onupkeep.com/api/v2/customers/')
-        self.customField = self.Customer(self, 'https://api.onupkeep.com/api/v2/custom-fields/assets')
+        self.customField = self.CustomField(self, 'https://api.onupkeep.com/api/v2/custom-fields/assets')
         self.location = self.Location(self, 'https://api.onupkeep.com/api/v2/locations/')
         self.meter = self.Meter(self,'https://api.onupkeep.com/api/v2/meters/')
         self.part = self.Part(self, 'https://api.onupkeep.com/api/v2/parts/')
